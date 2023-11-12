@@ -7,60 +7,64 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## Project informations
+### Description
+This project is being carried out as part of a laboratory for the HEIG-VD Web course.<br/>
+The concept is a simple contact web app database that implements CRUDS operations. The aim of this project is to learn how to use the following tools: PHP, MVC pattern, framework, etc. in a portable development environment.
+### Technical informations
+- Framework : Laravel
+- Database : MySQL
+- ORM : Eloquent
+- Library manager : Composer
+- Linter : Pint
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Installation instructions
+### Prequisits
+- Windows Subsystem for Linux (WSL 2.0) if running on a Windows OS
+- Git
+- Docker Desktop
+- Visual Studio code
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Instructions
+The steps to run this project on a dev-container hosted on your computer are as follow :
+/!\ For Windows users, all the following commands are to run on WSL 2.0 /!\
+1) Clone the project
+```
+git clone https://github.com/yvancochet/WEB-PW2.git
+```
+2) Go to the cloned project root folder
+```
+cd WEB-PW2
+```
+3) Launch Visual Studio Code
+```
+code .
+```
+4) When Visual studio code opens, click "reopen in container" on the popup banner on the bottom right of the screen
+5) You can check that all required services are running within docker
+<img width="1013" alt="image" src="https://github.com/yvancochet/WEB-PW2/assets/71433754/0ab8a922-1821-4772-bc33-5b51e85a34f5">
+6) The project is now running, you can access the website via http://localhost
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Database instructions
+To populate database with clean random data, use the following instruction. These instructions are to run in Visual Studio terminal :
+```
+php artisan db:seed --class=ContactSeeder
+php artisan migrate:fresh --seed --seeder=ContactSeeder
+```
+To recreate the whole database, in case of corruption or issues, use the following commands :
+```
+php artisan migrate:install
+php artisan schema:dump
+php artisan db:seed --class=ContactSeeder
+php artisan migrate:fresh --seed --seeder=ContactSeeder
+```
+To get the content of the Contact database, use the following commands :
+```
+php artisan tinker
+App\Models\Contact::all()
+```
 
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Install this devcontainer from scratch 
+```
+curl -s "https://laravel.build/WEB-PW2?with=mysql,redis&devcontainer" | bash
+```

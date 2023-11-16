@@ -68,3 +68,9 @@ App\Models\Contact::all()
 ```
 curl -s "https://laravel.build/WEB-PW2?with=mysql,redis&devcontainer" | bash
 ```
+
+## Sources used
+- Page style (CSS, Bootstrap) : https://www.bootdey.com
+- Laravel documentation : https://laravel.com/docs
+- Architecture and MVC logic : https://chat.openai.com/
+- Container creation : https://www.youtube.com/watch?v=ojWxCP1lT-Y

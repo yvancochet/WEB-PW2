@@ -64,6 +64,12 @@ php artisan tinker
 App\Models\Contact::all()
 ```
 
+## Run linter
+To run Pint linter on the project, open a vscode terminal and type the following command :
+```
+./vendor/bin/pint
+```
+
 ## Install this devcontainer from scratch 
 ```
 curl -s "https://laravel.build/WEB-PW2?with=mysql,redis&devcontainer" | bash

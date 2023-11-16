@@ -7,8 +7,6 @@ function previewImage(input) {
         // Check file size
         if (fileInput.files[0].size > 50000) { // 50 KB in bytes
             alert('File size exceeds the maximum allowed (50 KB). Please choose a smaller image.');
-            fileInput.value = ''; // Clear the file input
-            preview.style.display = 'none'; // Hide the preview
             return
         }
 
@@ -16,11 +14,15 @@ function previewImage(input) {
 
         reader.onload = function (e) {
             preview.src = e.target.result;
-            preview.style.display = 'block';
         };
 
         reader.readAsDataURL(fileInput.files[0]);
     }
+}
+
+//User nice button to open ugly file input
+function openFileInput() {
+    document.getElementById('imageInput').click();
 }
 
 //Hide success or failure messages after 5 seconds
@@ -33,3 +35,4 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 5000);
     }
 });
+

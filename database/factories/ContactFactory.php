@@ -17,12 +17,14 @@ class ContactFactory extends Factory
      */
     public function definition(): array
     {
+        //Pick random images pfrom public folder
         $imagePath = public_path('seeder-pictures');
         $imageFiles = File::files($imagePath);
 
         $randomImage = fake()->randomElement($imageFiles);
         $image = file_get_contents($randomImage->getPathname());
 
+        //Create user with "random" values
         return [
             'name' => fake()->firstName,
             'surname' => fake()->lastName,

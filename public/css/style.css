@@ -1,0 +1,19 @@
+/*
+Sources :
+https: //www.bootdey.com/snippets/preview/contacts-list-table
+https://www.bootdey.com/snippets/view/bs5-edit-profile-account-details
+*/
+
+body {
+    margin-top: 20px;
+    background-color: #eee;
+}
+
+.avatar-sm {
+    height: 4rem;
+    width: 4rem;
+}
+
+.img-account-profile {
+    height: 10rem;
+}

@@ -9,7 +9,7 @@ class Contact extends Model
 {
     use HasFactory;
 
-    // Specify the fillable fields for mass assignment
+    // Specify the fillable fields
     protected $fillable = [
         'name',
         'surname',
@@ -20,5 +20,4 @@ class Contact extends Model
         'birthday_date',
         'note',
     ];
-
 }

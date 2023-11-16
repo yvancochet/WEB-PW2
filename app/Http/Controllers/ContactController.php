@@ -14,6 +14,7 @@ class ContactController extends Controller
     {
         $contacts = Contact::all();
         $contactsCount = Contact::count();
+
         return view('contacts.index', compact('contacts', 'contactsCount'));
     }
 

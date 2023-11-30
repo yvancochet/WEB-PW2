@@ -20,8 +20,13 @@
     </head>
     <body>
         @if (session('success'))
-        <div id="success-message" class="alert alert-success">
+        <div id="message" class="alert alert-success">
             {{ session('success') }}
+        </div>
+        @endif
+        @if (session('failure'))
+        <div id="message" class="alert alert-danger">
+            {{ session('failure') }}
         </div>
         @endif
         @yield('content')

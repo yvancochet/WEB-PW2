@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {
@@ -32,16 +33,21 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         //Validate user input
-        $request->validate([
+        $validator = Validator::make($request->all(),[
             'name' => 'required|string|max:25',
             'surname' => 'required|string|max:25',
             'phone_number' => 'string|max:25|nullable',
-            'email' => 'email|nullable',
-            'address' => 'string|nullable',
+            'email' => 'email|nullable|max:100',
+            'address' => 'string|nullable|max:1024',
             'picture' => 'image|mimes:jpeg,png,jpg|max:50|nullable',
-            'birthday_date' => 'date|nullable',
+            'birthday_date' => 'date|nullable|max:50',
             'note' => 'string|max:1024|nullable',
         ]);
+
+        // If validation fails, redirect back with errors
+        if ($validator->fails()) {
+            return redirect()->route('contacts.index')->with('failure', 'Error creating contact, bad user input');
+        }
 
         // Handle picture upload
         $picture = null;
@@ -86,16 +92,21 @@ class ContactController extends Controller
     public function update(Request $request, Contact $contact)
     {
         //Validate user input
-        $request->validate([
+        $validator = Validator::make($request->all(),[
             'name' => 'required|string|max:25',
             'surname' => 'required|string|max:25',
             'phone_number' => 'string|max:25|nullable',
-            'email' => 'email|nullable',
-            'address' => 'string|nullable',
+            'email' => 'email|nullable|max:100',
+            'address' => 'string|nullable|max:1024',
             'picture' => 'image|mimes:jpeg,png,jpg|max:50|nullable',
-            'birthday_date' => 'date|nullable',
+            'birthday_date' => 'date|nullable|max:50',
             'note' => 'string|max:1024|nullable',
         ]);
+
+        // If validation fails, redirect back with errors
+        if ($validator->fails()) {
+            return redirect()->route('contacts.index')->with('failure', 'Error creating contact, bad user input');
+        }
 
         // Handle picture upload
         if ($request->hasFile('picture')) {

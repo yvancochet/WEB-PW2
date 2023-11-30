@@ -33,34 +33,34 @@
                         <div class="row gx-3 mb-3">
                             <div class="col-md-6">
                                 <label class="small mb-1" for="name">Name</label>
-                                <input type="text" class="form-control" name="name" placeholder="Name" required>
+                                <input type="text" maxlength="25" class="form-control" name="name" placeholder="Name" required>
                             </div>
                             <div class="col-md-6">
                                 <label class="small mb-1" for="surname">Surname</label>
-                                <input type="text" class="form-control" name="surname" placeholder="Surname" required>
+                                <input type="text" maxlength="25" class="form-control" name="surname" placeholder="Surname" required>
                             </div>
                         </div>
                         <div class="row gx-3 mb-3">
                             <div class="col-md-6">
                                 <label class="small mb-1" for="phone">Phone Number</label>
-                                <input type="text" class="form-control" name="phone_number" placeholder="Phone Number">
+                                <input type="text" maxlength="25" class="form-control" name="phone_number" placeholder="Phone Number">
                             </div>
                             <div class="col-md-6">
                                 <label class="small mb-1" for="birthday">Birthday</label>
-                                <input type="date" class="form-control" name="birthday_date" placeholder="Birthday">
+                                <input type="date" maxlength="50" class="form-control" name="birthday_date" placeholder="Birthday">
                             </div>
                         </div>
                         <div class="mb-3">
                             <label class="small mb-1" for="email">Email address</label>
-                            <input type="email" class="form-control" name="email" placeholder="Email address">
+                            <input type="email" maxlength="100" class="form-control" name="email" placeholder="Email address">
                         </div>
                         <div class="mb-3">
                             <label class="small mb-1" for="address">Address</label>
-                            <textarea class="form-control" name="address" placeholder="Address"></textarea>
+                            <textarea class="form-control" maxlength="1024" name="address" placeholder="Address"></textarea>
                         </div>
                         <div class="mb-3">
                             <label class="small mb-1" for="note">Note</label>
-                            <textarea class="form-control" name="note" placeholder="Note"></textarea>
+                            <textarea class="form-control" maxlength="1024" name="note" placeholder="Note"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Create Contact</button>
                     </div>

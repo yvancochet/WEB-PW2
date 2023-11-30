@@ -25,14 +25,14 @@ function openFileInput() {
     document.getElementById('imageInput').click();
 }
 
-//Hide success or failure messages after 5 seconds
+//Hide success or failure messages after 3 seconds
 document.addEventListener('DOMContentLoaded', function () {
-    const successMessage = document.getElementById('success-message');
+    const successMessage = document.getElementById('message');
 
     if (successMessage) {
         setTimeout(function () {
             successMessage.style.display = 'none';
-        }, 5000);
+        }, 3000);
     }
 });
 
